@@ -1,0 +1,11 @@
+.navigation {
+  min-height: 150px;
+  background-image: url('../images/motif-batik-Sidomukti-solo.jpg');
+  border-bottom: 7px solid black;
+  text-align: center;
+}
+
+.navbar {
+  display: inline-block;
+  padding: 0 40px 0 0;
+}

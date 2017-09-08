@@ -1,0 +1,15 @@
+.link {
+  font-size: 20px;
+  text-decoration: none;
+  font-variant: small-caps;
+  color: aliceblue;
+}
+
+.link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.project_list {
+  list-style: none;
+}

@@ -1,0 +1,12 @@
+.content-detail {
+  text-align: center;
+  padding: 20px 50px 10px 50px;
+  min-height: 400px;
+  background-color: #152020;
+  color: aliceblue;
+}
+
+.content-detail > div {
+  display: inline-block;
+  width: 40%;
+}

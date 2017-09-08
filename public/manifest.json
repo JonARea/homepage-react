@@ -1,0 +1,9 @@
+{
+ "name": "App",
+ "icons": [
+  {
+   "src": "gongedit_RgM_icon.ico",
+   "sizes": "16x16",
+   "type": "image/png",
+   "density": "1"
+  },
