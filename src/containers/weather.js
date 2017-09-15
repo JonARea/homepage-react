@@ -21,22 +21,58 @@ class Weather extends Component {
     this.setState({searched: true})
   }
 
-  renderLocalWeather() {
-    const Description = this.props.weather.weather[0].description === '' ? 'Could not get your location' : this.props.weather.weather[0].description
-    const Icon = this.props.weather.weather[0].icon
-    const Temp = this.props.weather.main.temp
-    const Hum =  this.props.weather.main.humidity
+  renderLocalWeather(clicked) {
+    if (!clicked) {
+      return ('')
+    } else if (this.props.weather.weather[0].description === '') {
+      return (
+        'Could not get your location'
+      )
+    } else {
 
-    return (
-      <div>
-        <h2>"Today's Weather"</h2>
-        {Description}
+      const Description = this.props.weather.weather[0].description
+      const Icon = this.props.weather.weather[0].icon
+      const Temp = this.props.weather.main.temp
+      const Hum =  this.props.weather.main.humidity
 
-        <img src={Icon} alt=''/>
-        <p>Temperature: {Temp}</p>
-        <p>Humidity: {Hum}</p>
-      </div>
-    )
+      return (
+        <div>
+          <h2>"Today's Weather"</h2>
+          {Description}
+
+          <img src={Icon} alt=''/>
+          <p>Temperature: {Temp}</p>
+          <p>Humidity: {Hum}</p>
+        </div>
+      )
+    }
+
+  }
+
+  renderSearchedWeather(searched) {
+    if (!searched) {
+      return ''
+    } else {
+      const Temp = this.props.weatherByCity[0].main.temp === 0 ? 'calculating' : Math.floor(this.props.weatherByCity[0].main.temp * (9/5) - 459.67)
+      const Humidity = this.props.weatherByCity[0].main.humidity
+      const Description = this.props.weatherByCity[0].weather[0].description
+      const City = this.props.weatherByCity[1]
+      const Country = this.props.weatherByCity[2]
+      const iconURL = `http://openweathermap.org/img/w/${this.props.weatherByCity[0].weather[0].icon}.png`
+
+
+      return (
+        <div>
+          <h2>{City}, {Country}</h2>
+          <h3>
+            {Description}
+            <img src={iconURL} alt='icon' />
+          </h3>
+          <p>{'Temperature: ' + Temp + '\u00B0'}</p>
+          <p>Humidity: {Humidity}%</p>
+        </div>
+      )
+    }
   }
 
   componentDidMount() {
@@ -50,30 +86,28 @@ class Weather extends Component {
   }
 
   render() {
-    const tempData = this.props.weatherByCity.list ? this.props.weatherByCity.list[0].main.temp : ''
-    console.log(tempData)
+
     return (
-      <div>
+
         <div className='weather'>
-          <button className='btn btn-primary' onClick={() => this.handleClick()}>
+          <button className='btn btn-primary' onClick={() => {this.handleClick()}}>
             Get your local weather
           </button>
+          <div className='local-weather'>
+            {this.renderLocalWeather(this.state.clicked)}
+          </div>
           <h3 style={{fontStyle:'italic'}}>
             OR
           </h3>
           <WeatherSearchInput update={this.onSubmit.bind(this)}/>
-        </div>
-        <div className='local-weather'>
-          {this.state.clicked ? this.renderLocalWeather : ''}
-        </div>
-        <div className='fetchWeather'>
-          Weather Forecast
-
-          Temperature: {tempData}
-
+          <div className='fetchWeather'>
+            {this.renderSearchedWeather(this.state.searched)}
+          </div>
 
         </div>
-      </div>
+
+
+      
     )
   }
 

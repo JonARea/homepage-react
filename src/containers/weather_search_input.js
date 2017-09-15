@@ -1,33 +1,36 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { fetchWeather } from '../actions/weatherByCity'
 import { bindActionCreators } from 'redux'
+import '../styles/weatherSearchInput.css'
 
-let submit = (input, dispatch) => {
 
-  return dispatch(fetchWeather(input.citySearch))
 
-}
+class WeatherSearchInput extends Component {
 
-const WeatherSearchInput = props => {
-  const { handleSubmit, reset, submitSucceeded, update } = props
 
-  if (submitSucceeded) {
-    update()
-    reset()
+  submit(input, dispatch) {
+    dispatch(fetchWeather(input.citySearch))
+    this.props.update()
+    this.props.reset()
   }
-  return (
-    <form onSubmit={handleSubmit(submit)}>
-      <Field
-        name='citySearch'
-        component='input'
-        type='text'
-        placeholder='Search for weather from any city here'
-      />
-    </form>
-  )
-}
 
+  render() {
+    return (
+      <form onSubmit={
+        this.props.handleSubmit(this.submit.bind(this))
+      }>
+        <Field
+          name='citySearch'
+          component='input'
+          type='text'
+          placeholder='Search for weather from any city here'
+        />
+      </form>
+    )
+  }
+
+}
 
 export default reduxForm({
   form: 'WeatherSearch',
