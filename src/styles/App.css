@@ -1,33 +1,32 @@
 
 
 .App-logo {
-  margin-left: -85px;
-  height: 100px;
+  margin: 10px -40px -5px 0;
+  width: 8%;
+  min-width: 60px;
   display: inline-block;
 }
 
 .App-header {
   text-align: center;
-  background: linear-gradient(#253030, #152020);
+  background: linear-gradient(#051010, black);
   height: 160px;
   color: aliceblue;
   border-bottom: 7px solid black;
 }
 
-#facebook {
+#facebook, #github {
     float: left;
-    display: inline;
+    display: inline-block;
     margin: 10px 0 0 10px;
     height: 30px;
     width: 30px;
     padding: 0 0 5px 5px;
 }
 
-#github {
-    float: left;
-    display: inline;
-    margin: 10px 0 0 10px;
-    height: 30px;
-    width: 30px;
-    padding: 0 0 5px 5px;
+#codewars {
+  float: right;
+  display: inline-block;
+  margin: 10px 10px 0 0;
+
 }

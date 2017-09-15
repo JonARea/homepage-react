@@ -3,10 +3,11 @@
   padding: 20px 50px 10px 50px;
   min-height: 400px;
   color: aliceblue;
-  background-color: #152020;
+  background-color: black;
 }
 
 .content-detail > div {
   display: inline-block;
   width: 40%;
+  min-width: 200px;
 }
