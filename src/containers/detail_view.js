@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { homepage } from '../components/home'
+import $ from 'jquery'
+import _ from 'lodash'
 import '../styles/content-detail.css'
 
 class ContentDetail extends Component {
@@ -19,7 +21,7 @@ class ContentDetail extends Component {
 function mapStateToProps(state) {
   return {
     activePage: state.showDetail,
-    contents: state.contents
+    contents: state.contents,
   }
 }
 

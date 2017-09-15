@@ -4,6 +4,7 @@ import { BOX_SELECTED, selectBox } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import QuoteGenerator from '../containers/quote_generator'
+import Weather from '../containers/weather'
 
   class ProjectLink extends Component {
 
@@ -26,7 +27,11 @@ import QuoteGenerator from '../containers/quote_generator'
       switch (this.state.title) {
         case 'quote_generator':
           return <QuoteGenerator/>
-        default: null
+        case 'weather':
+          return <Weather/>
+        default:
+          return null
+
 
       }
     }

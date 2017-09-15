@@ -11,7 +11,7 @@ class App extends Component {
         <div className='container-fluid navigation'>
           <NavBar />
         </div>
-        <div className='container-fluid'>
+        <div className='container-fluid detail_view'>
           <Contents />
         </div>
       </div>
