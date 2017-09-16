@@ -4,7 +4,6 @@ import { fetchWeather } from '../actions/weatherByCity'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import WeatherSearchInput from './weather_search_input'
-import $ from 'jquery'
 import '../styles/weather.css'
 
 
@@ -75,11 +74,6 @@ class Weather extends Component {
     }
   }
 
-  componentDidMount() {
-    $('div.content-detail').css('background-color', 'aliceblue').css('color','black')
-
-  }
-
   handleClick() {
     this.props.getLocalWeather()
     this.setState({clicked: true})
@@ -107,12 +101,8 @@ class Weather extends Component {
         </div>
 
 
-      
-    )
-  }
 
-  componentWillUnmount() {
-    $('div.content-detail').css('background-color', '#152020').css('color', 'aliceblue')
+    )
   }
 }
 

@@ -1,14 +1,28 @@
 .box {
   height: 80px;
   width: 150px;
-  background: linear-gradient(#253030, #152020);
+  background-color: black;
   color: aliceblue;
-  list-style: none;
+
   padding: 8px;
   text-align: center;
   font-variant-caps: small-caps;
   border: solid thin #444;
   border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
+}
+
+#writings {
+  background-image: url('https://images.pexels.com/photos/269810/pexels-photo-269810.jpeg?h=350&auto=compress&cs=tinysrgb');
+
+}
+
+#projects {
+  background-image: url('https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?h=350&auto=compress&cs=tinysrgb');
+}
+
+#homepage {
+  background-image: url('https://images.pexels.com/photos/239107/pexels-photo-239107.jpeg?h=350&auto=compress&cs=tinysrgb');
 }
 
 .box:hover {
@@ -19,12 +33,9 @@
 }
 
 .nav > li {
-  height: 80px;
-  width: 150px;
-  background-color: black;
+  background-color: transparent;
   list-style: none;
   float: left;
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
-  border-radius: 5px;
 }

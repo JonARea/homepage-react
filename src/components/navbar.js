@@ -9,11 +9,11 @@ export default class NavBar extends Component {
       <nav className='navbar'>
         <ul className='nav navbar-nav'>
 
-            <Box title='homepage'/>
+            <Box title='homepage' id='homepage'/>
 
-            <Box title='writings'/>
+            <Box title='writings' id='writings'/>
 
-            <Box title='projects'/>
+            <Box title='projects' id='projects'/>
 
         </ul>
       </nav>

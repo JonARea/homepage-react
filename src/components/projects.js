@@ -12,9 +12,10 @@ export const projects =
       <li>
         <a href='https://apomodorotimertohelpmework.herokuapp.com'>My pomodoro timer</a>
       </li>
+      <br />
 
       <ProjectLink title='quote_generator' className='link' />
-
+      <br />
       <ProjectLink title='weather' className='link' />
 
     </ul>

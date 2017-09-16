@@ -2,7 +2,8 @@
   font-size: 20px;
   text-decoration: none;
   font-variant: small-caps;
-  color: aliceblue;
+  font-weight: bold;
+  color: black;
 }
 
 .link:hover {

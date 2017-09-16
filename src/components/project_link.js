@@ -17,7 +17,7 @@ import Weather from '../containers/weather'
       return (
         <li className='link'
                 onClick={() => this.props.selectBox(this.projectApp())}>
-            <p>{this.state.title}</p>
+            {this.state.title}
 
         </li>
       )

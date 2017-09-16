@@ -9,10 +9,10 @@
 
 .App-header {
   text-align: center;
-  background: linear-gradient(#051010, black);
-  height: 160px;
+  background: #1e1108;
+  height: 175px;
   color: white;
-  border-bottom: 7px solid black;
+  border-bottom: 3px groove #1BA;
 }
 
 #facebook, #github {
