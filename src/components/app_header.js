@@ -14,7 +14,7 @@ export default class AppHeader extends Component {
             <a id='githublink' href='https://github.com/JonARea' className='nav-link'>
               <img id='github' src={github} alt='My Github page'/>
             </a>
-            <img id='codewars' src='https://www.codewars.com/users/JonARea/badges/micro' />
+            <img id='codewars' src='https://www.codewars.com/users/JonARea/badges/micro' alt='codewars badge'/>
             <img src={gong} className="App-logo" alt="logo" />
             <h2>Jon Rea</h2>
         </div>

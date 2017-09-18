@@ -1,10 +1,11 @@
 
 
 .App-logo {
-  margin: 10px -40px -5px 0;
+  margin: 10px -45px -5px 0;
   width: 8%;
   min-width: 60px;
   display: inline-block;
+  box-shadow: 2px 2px 5px black;
 }
 
 .App-header {
@@ -12,7 +13,7 @@
   background: #1e1108;
   height: 175px;
   color: white;
-  border-bottom: 3px groove #1BA;
+  border-bottom: 2px groove #1BA;
 }
 
 #facebook, #github {

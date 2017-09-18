@@ -4,7 +4,7 @@ import '../styles/project_links.css'
 
 export const projects =
   <div>
-    <ul className='project_list'>
+    <ul className='list-group project_list'>
       <li>
         <a href='https://niyagapedia.herokuapp.com'>Niyagapedia</a>
       </li>
@@ -17,6 +17,8 @@ export const projects =
       <ProjectLink title='quote_generator' className='link' />
       <br />
       <ProjectLink title='weather' className='link' />
+      <br />
+      <ProjectLink title='calculator' className='link' />
 
     </ul>
   </div>

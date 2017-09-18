@@ -1,6 +1,6 @@
 import $ from 'jquery'
 
-const QUERY = "http://forismatic.com/ru/?"
+
 export const GET_QUOTE = 'GET_QUOTE'
 
 export function get_quote () {

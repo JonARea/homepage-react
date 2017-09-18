@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { fetchWeather } from '../actions/weatherByCity'
-import { bindActionCreators } from 'redux'
 import '../styles/weatherSearchInput.css'
 
 

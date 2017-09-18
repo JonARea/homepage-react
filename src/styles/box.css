@@ -1,6 +1,6 @@
 .box {
-  height: 80px;
-  width: 150px;
+  height: 120px;
+  width: 300px;
   background-color: black;
   color: aliceblue;
 
@@ -9,7 +9,7 @@
   font-variant-caps: small-caps;
   border: solid thin #444;
   border-radius: 5px;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 3px 3px 10px black;
 }
 
 #writings {

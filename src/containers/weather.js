@@ -83,7 +83,7 @@ class Weather extends Component {
 
     return (
 
-        <div className='weather'>
+        <div className='weather small-container'>
           <button className='btn btn-primary' onClick={() => {this.handleClick()}}>
             Get your local weather
           </button>

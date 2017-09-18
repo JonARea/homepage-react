@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import '../styles/project_links.css'
-import { BOX_SELECTED, selectBox } from '../actions/index'
+import { selectBox } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import QuoteGenerator from '../containers/quote_generator'
 import Weather from '../containers/weather'
+import Calculator from './calculator'
 
   class ProjectLink extends Component {
 
@@ -29,6 +30,8 @@ import Weather from '../containers/weather'
           return <QuoteGenerator/>
         case 'weather':
           return <Weather/>
+        case 'calculator':
+          return <Calculator />
         default:
           return null
 

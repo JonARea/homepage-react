@@ -8,9 +8,10 @@ a {
   font-size: 20px;
   text-decoration: none;
   font-variant: small-caps;
-  font-weight: bold;
+  font-weight: 300;
   color: black;
 }
+
 a:hover {
   text-decoration: underline;
 }

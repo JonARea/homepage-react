@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../styles/box.css'
-import { BOX_SELECTED, selectBox } from '../actions/index'
+import { selectBox } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 

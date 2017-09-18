@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { get_quote } from '../actions/get_quote'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import tweet from '../images/tweet.png'
 import '../styles/quote_generator.css'
 
 class QuoteGenerator extends Component {
@@ -11,7 +10,7 @@ class QuoteGenerator extends Component {
     const QUOTE = this.props.quote.quoteText
     const AUTHOR = this.props.quote.quoteAuthor
     return (
-      <div className='quote'>
+      <div className='quote small-container'>
         <button className='btn'
                 onClick={() => this.props.get_quote() } >
             New Quote

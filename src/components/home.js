@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const homepage =
-  <div>
+  <div className='small-container'>
     <p>"Other people have what they need;
     I alone possess nothing.
     I alone drift about,
