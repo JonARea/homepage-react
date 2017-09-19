@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import QuoteGenerator from '../containers/quote_generator'
 import Weather from '../containers/weather'
 import Calculator from './calculator'
+import Simon from './simon'
 
   class ProjectLink extends Component {
 
@@ -32,6 +33,8 @@ import Calculator from './calculator'
           return <Weather/>
         case 'calculator':
           return <Calculator />
+        case 'simon':
+          return <Simon />
         default:
           return null
 

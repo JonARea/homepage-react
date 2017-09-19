@@ -19,6 +19,8 @@ export const projects =
       <ProjectLink title='weather' className='link' />
       <br />
       <ProjectLink title='calculator' className='link' />
+      <br />
+      <ProjectLink title='simon' className='link' />
 
     </ul>
   </div>

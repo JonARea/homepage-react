@@ -1,0 +1,137 @@
+#simon-border {
+  position: relative;
+  margin: 50px 300px 0 300px;
+  padding: 20px;
+  height: 600px;
+  width: 600px;
+  background-color: #212121;
+  border-radius: 50%;
+}
+
+.button {
+    z-index: 1;
+}
+
+#green-button {
+  position: absolute;
+  top: 33px;
+  left: 33px;
+  height: 250px;
+  width: 250px;
+  background-color: green;
+  border-top-left-radius: 100%;
+}
+
+#red-button {
+  position: absolute;
+  top: 33px;
+  left: 316px;
+  height: 250px;
+  width: 250px;
+  background-color: red;
+  border-top-right-radius: 100%;
+}
+
+#yellow-button {
+  position: absolute;
+  top: 316px;
+  left: 33px;
+  height: 250px;
+  width: 250px;
+  background-color: yellow;
+  border-bottom-left-radius: 100%;
+}
+
+#blue-button {
+  position: absolute;
+  top: 316px;
+  left: 316px;
+  height: 250px;
+  width: 250px;
+  background-color: blue;
+  border-bottom-right-radius: 100%;
+}
+
+#center-border {
+  position: absolute;
+  height: 310px;
+  width: 310px;
+  top: 145px;
+  left: 145px;
+  background-color: #212121;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+#controls {
+  position: absolute;
+  height: 280px;
+  width: 280px;
+  top: 15px;
+  left: 15px;
+  background-color: #BDBDBD;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+#counter-holder {
+  position: absolute;
+  top:130px;
+  left: 40px;
+  height: 60px;
+  width: 60px;
+}
+#counter-holder > p {
+  position: absolute;
+  top: 45px;
+  left: 5px;
+}
+#counter {
+  position: absolute;
+  height: 40px;
+  width: 60px;
+  border-radius: 20%;
+  background-color: #511
+}
+
+#start-holder {
+  position: absolute;
+  top: 130px;
+  left: 125px;
+  height: 53px;
+  width: 33px;
+}
+#start-holder > p {
+  position: absolute;
+  top: 45px;
+  left: -3px;
+}
+#start-button {
+  position: absolute;
+  height: 33px;
+  width: 33px;
+  border: 4px solid #212121;
+  background-color: red;
+  border-radius: 50%;
+}
+
+#strict-holder {
+  position: absolute;
+  top: 130px;
+  left: 195px;
+  height: 53px;
+  width: 33px;
+}
+#strict-holder > p {
+  position: absolute;
+  top: 45px;
+  left: -5px;
+}
+#strict-button {
+  position: absolute;
+  height: 33px;
+  width: 33px;
+  border: 4px solid #212121;
+  background-color: yellow;
+  border-radius: 50%;
+}
