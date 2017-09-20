@@ -6,7 +6,13 @@
   width: 600px;
   background-color: #212121;
   border-radius: 50%;
+  box-shadow: 1px 1px 6px 3px #444
 }
+
+h1 {
+  font-size: 60px;
+}
+
 
 .button {
     z-index: 1;
@@ -21,6 +27,10 @@
   background-color: green;
   border-top-left-radius: 100%;
 }
+.green-button-lit {
+  background-color: #3F3 !important;
+}
+
 
 #red-button {
   position: absolute;
@@ -28,9 +38,14 @@
   left: 316px;
   height: 250px;
   width: 250px;
-  background-color: red;
+  background-color: #B11;
   border-top-right-radius: 100%;
 }
+
+.red-button-lit {
+  background-color: #F33 !important;
+}
+
 
 #yellow-button {
   position: absolute;
@@ -38,9 +53,14 @@
   left: 33px;
   height: 250px;
   width: 250px;
-  background-color: yellow;
+  background-color: #cc0;
   border-bottom-left-radius: 100%;
 }
+
+.yellow-button-lit {
+  background-color: #FFFF40 !important;
+}
+
 
 #blue-button {
   position: absolute;
@@ -48,9 +68,14 @@
   left: 316px;
   height: 250px;
   width: 250px;
-  background-color: blue;
+  background-color: #00A;
   border-bottom-right-radius: 100%;
 }
+
+.blue-button-lit {
+  background-color: #4040FF !important;
+}
+
 
 #center-border {
   position: absolute;
@@ -86,12 +111,32 @@
   top: 45px;
   left: 5px;
 }
+
+@font-face {
+    font-family: 'sf_digital_readoutmedium';
+    src: url('sfdigitalreadout-medium-webfont.woff2') format('woff2'),
+         url('sfdigitalreadout-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 #counter {
   position: absolute;
   height: 40px;
   width: 60px;
   border-radius: 20%;
-  background-color: #511
+  background-color: #511;
+
+  color: #FF3333;
+}
+
+#counter > p {
+  position: absolute;
+  top: -16px;
+  left: 6px;
+  font-family: 'sf_digital_readoutmedium';
+  font-size: 50px;
 }
 
 #start-holder {
@@ -134,4 +179,39 @@
   border: 4px solid #212121;
   background-color: yellow;
   border-radius: 50%;
+}
+
+#on-off-holder {
+  position: absolute;
+  top: 210px;
+  left: 80px;
+  height: 25px;
+  width: 110px;
+}
+
+#on {
+  float: right;
+}
+
+#off {
+  float: left;
+}
+
+#on-off-switch {
+  position: absolute;
+  float: left;
+  padding: 2px;
+  left: 32px;
+  height: 20px;
+  width: 50px;
+  background-color: #212121;
+  border-radius: 4px;
+}
+
+#on-off-toggle {
+  position: absolute;
+  height: 16px;
+  width: 24px;
+  background-color: blue;
+  border-radius: 2px;
 }
