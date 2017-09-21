@@ -9,6 +9,15 @@ const redSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp
 
 
 class Simon extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      on: false,
+      count: ''
+    }
+    this.toggleOnOff = this.toggleOnOff.bind(this)
+    this.startSequence = this.startSequence.bind(this)
+  }
 
   componentWillMount() {
     $('div.content-detail').css('background-image', 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2-vz_g3WI9RSUqhKIhd6KqFFpxt22PHYxJI6tJXRP1wNq2rTY")');
@@ -20,6 +29,7 @@ class Simon extends Component {
   }
 
   lightButton(e) {
+    console.log(e)
     e.target.classList.add(e.target.id + '-lit')
     e.target.id === 'blue-button' ? blueSound.play() :
     e.target.id === 'yellow-button' ? yellowSound.play() :
@@ -32,9 +42,48 @@ class Simon extends Component {
     e.target.classList.remove(e.target.id + '-lit')
   }
 
+  startSequence() {
+    this.setState({count: '1'})
+    let sequence = []
+    const buttonInterval = setInterval(playSequence.bind(this), 1600)
+
+    function playSequence () {
+      const randomNumber = Math.random()
+      let button = null
+      if (randomNumber < 0.25) {
+        button = document.getElementById('green-button')
+
+      } else if (randomNumber < 0.50) {
+        button = document.getElementById('red-button')
+      } else if (randomNumber < 0.75) {
+        button = document.getElementById('blue-button')
+      } else {
+        button = document.getElementById('yellow-button')
+      }
+
+      this.lightButton({target: button})
+      const waitThenTurnOffButton = setTimeout(turnOffButton(button).bind(this), 800)
+
+      function turnOffButton(button) {
+        this.unlightButton({target: button})
+      }
+    }
+  }
+
+  toggleOnOff () {
+    if (this.state.on) {
+      $('div.content-detail div').css({pointerEvents: 'none'})
+      $('#on-off-switch').css({pointerEvents: 'auto'})
+      $('#on-off-toggle').css({left: 0})
+      this.setState({on: false})
+    } else {
+      $('div.content-detail *').css({pointerEvents: 'auto'})
+      $('#on-off-toggle').css({left: '25px'})
+      this.setState({on: true, count: ' --'})
+    }
+  }
+
   render() {
-
-
 
     return (
       <div id='simon-border'>
@@ -51,7 +100,7 @@ class Simon extends Component {
             <h1>Simon</h1>
 
             <div id='start-holder'>
-              <div id='start-button'>
+              <div id='start-button' onClick={this.startSequence}>
               </div>
               <p>START</p>
             </div>
@@ -62,10 +111,10 @@ class Simon extends Component {
               <p>STRICT</p>
             </div>
 
-            <div id='on-off-holder'>
+            <div className='on-off' id='on-off-holder'>
               <p id='on'>ON</p>
-              <div id='on-off-switch'>
-                <div id='on-off-toggle'>
+              <div className='on-off' id='on-off-switch' onClick={this.toggleOnOff}>
+                <div className='on-off' id='on-off-toggle'>
                 </div>
               </div>
               <p id='off'>OFF</p>
@@ -73,7 +122,7 @@ class Simon extends Component {
 
             <div id='counter-holder'>
               <div id='counter'>
-                <p>12</p>
+                <p>{this.state.count}</p>
               </div>
               <p>COUNT</p>
             </div>

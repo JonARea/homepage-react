@@ -1,3 +1,11 @@
+ #simon-border .button {
+  pointer-events: none;
+}
+
+#controls :not(.on-off) {
+  pointer-events: none;
+}
+
 #simon-border {
   position: relative;
   margin: 50px 300px 0 300px;
@@ -9,7 +17,7 @@
   box-shadow: 1px 1px 6px 3px #444
 }
 
-h1 {
+.simon-border h1 {
   font-size: 60px;
 }
 
@@ -26,6 +34,7 @@ h1 {
   width: 250px;
   background-color: green;
   border-top-left-radius: 100%;
+
 }
 .green-button-lit {
   background-color: #3F3 !important;
