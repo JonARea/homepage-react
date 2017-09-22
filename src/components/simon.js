@@ -31,6 +31,7 @@ class Simon extends Component {
   lightButton(e) {
     console.log(e)
     e.target.classList.add(e.target.id + '-lit')
+    console.log(e.target)
     e.target.id === 'blue-button' ? blueSound.play() :
     e.target.id === 'yellow-button' ? yellowSound.play() :
     e.target.id === 'green-button' ? greenSound.play() :
@@ -43,30 +44,38 @@ class Simon extends Component {
   }
 
   startSequence() {
-    this.setState({count: '1'})
+
     let sequence = []
-    const buttonInterval = setInterval(playSequence.bind(this), 1600)
+    let count = 1
+    let buttonsPlayed = 0
+    const buttonSequence = setInterval(()=>{playSequence(sequence, count)}, 1600)
 
-    function playSequence () {
+    function playSequence (sequence, count) {
+
+      //randomly choose a button
       const randomNumber = Math.random()
-      let button = null
+      let buttonID = null
       if (randomNumber < 0.25) {
-        button = document.getElementById('green-button')
-
+        buttonID = 'green-button'
       } else if (randomNumber < 0.50) {
-        button = document.getElementById('red-button')
+        buttonID = 'red-button'
       } else if (randomNumber < 0.75) {
-        button = document.getElementById('blue-button')
+        buttonID = 'blue-button'
       } else {
-        button = document.getElementById('yellow-button')
+        buttonID = 'yellow-button'
       }
+      //light it up
+      const clickButton = document.createEvent('MouseEvents')
+      clickButton.initEvent('mousedown', true, true)
+      document.getElementById(buttonID).dispatchEvent(clickButton)
 
-      this.lightButton({target: button})
-      const waitThenTurnOffButton = setTimeout(turnOffButton(button).bind(this), 800)
+      const waitThenTurnOffButton = setTimeout(()=>{
+        clickButton.initEvent('mouseup', true, true)
+        document.getElementById(buttonID).dispatchEvent(clickButton)
+      }, 800)
+    //stop after count is reached
+    if (++buttonsPlayed === count) {window.clearInterval(buttonSequence)}
 
-      function turnOffButton(button) {
-        this.unlightButton({target: button})
-      }
     }
   }
 
