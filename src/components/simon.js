@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import $ from 'jquery'
+import _ from 'lodash'
 import '../styles/simon.css'
 
 const blueSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3')
@@ -11,9 +12,11 @@ const redSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp
 class Simon extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       on: false,
-      count: ''
+      count: '',
+      sequence: [],
     }
     this.toggleOnOff = this.toggleOnOff.bind(this)
     this.startSequence = this.startSequence.bind(this)
@@ -21,12 +24,17 @@ class Simon extends Component {
 
   componentWillMount() {
     $('div.content-detail').css('background-image', 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2-vz_g3WI9RSUqhKIhd6KqFFpxt22PHYxJI6tJXRP1wNq2rTY")');
-
   }
 
   componentWillUnmount() {
     $('div.content-detail').css('background-image', 'none')
   }
+
+  componentWillUpdate() {
+
+
+  }
+
 
   lightButton(e) {
     console.log(e)
@@ -43,28 +51,54 @@ class Simon extends Component {
     e.target.classList.remove(e.target.id + '-lit')
   }
 
+  getARandomButton() {
+    const randomNumber = Math.random()
+    if (randomNumber < 0.25) {
+      return 'green-button'
+    } else if (randomNumber < 0.50) {
+      return 'yellow-button'
+    } else if (randomNumber < 0.75) {
+      return 'blue-button'
+    } else {
+      return 'red-button'
+    }
+  }
+
   startSequence() {
 
-    let sequence = []
-    let count = 1
-    let buttonsPlayed = 0
-    const buttonSequence = setInterval(()=>{playSequence(sequence, count)}, 1600)
+    let randomButton = this.getARandomButton()
 
-    function playSequence (sequence, count) {
+    let count = isNaN(this.state.count) ? 1 : this.state.count + 1
 
-      //randomly choose a button
-      const randomNumber = Math.random()
-      let buttonID = null
-      if (randomNumber < 0.25) {
-        buttonID = 'green-button'
-      } else if (randomNumber < 0.50) {
-        buttonID = 'red-button'
-      } else if (randomNumber < 0.75) {
-        buttonID = 'blue-button'
-      } else {
-        buttonID = 'yellow-button'
-      }
+    let sequence = [...this.state.sequence, randomButton]
+
+    let indexToPlay = 0
+
+    this.setState({
+      count: count,
+      sequence: sequence
+    })
+
+    console.log('indextoplay is ' + indexToPlay, 'button to play is ' + sequence[indexToPlay], 'sequence is ' + sequence)
+
+    function setButtonInterval(callback, delay, repetitions) {
+      let buttonsPlayed = 0;
+      const intervalID = window.setInterval(function () {
+
+         callback(buttonsPlayed);
+
+         if (++buttonsPlayed === repetitions) {
+             window.clearInterval(intervalID);
+         }
+      }, delay);
+    }
+
+    setButtonInterval((buttonsPlayed) => playTheButton(buttonsPlayed, sequence), 1600, sequence.length)
+
       //light it up
+    function playTheButton(indexToPlay, sequence) {
+      const buttonID = sequence[indexToPlay]
+
       const clickButton = document.createEvent('MouseEvents')
       clickButton.initEvent('mousedown', true, true)
       document.getElementById(buttonID).dispatchEvent(clickButton)
@@ -73,10 +107,9 @@ class Simon extends Component {
         clickButton.initEvent('mouseup', true, true)
         document.getElementById(buttonID).dispatchEvent(clickButton)
       }, 800)
-    //stop after count is reached
-    if (++buttonsPlayed === count) {window.clearInterval(buttonSequence)}
 
     }
+
   }
 
   toggleOnOff () {
