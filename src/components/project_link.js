@@ -6,7 +6,8 @@ import { connect } from 'react-redux'
 import QuoteGenerator from '../containers/quote_generator'
 import Weather from '../containers/weather'
 import Calculator from './calculator'
-import Simon from './simon'
+import Simon from '../containers/simon'
+
 
   class ProjectLink extends Component {
 

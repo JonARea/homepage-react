@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import $ from 'jquery'
-import _ from 'lodash'
 import '../styles/simon.css'
+import { changeBackground } from '../actions/index'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 const blueSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3')
 const yellowSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3')
@@ -10,8 +12,8 @@ const redSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp
 
 
 class Simon extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.state = {
       on: false,
@@ -23,11 +25,12 @@ class Simon extends Component {
   }
 
   componentWillMount() {
-    $('div.content-detail').css('background-image', 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2-vz_g3WI9RSUqhKIhd6KqFFpxt22PHYxJI6tJXRP1wNq2rTY")');
+    this.props.changeBackground("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2-vz_g3WI9RSUqhKIhd6KqFFpxt22PHYxJI6tJXRP1wNq2rTY")
+
   }
 
   componentWillUnmount() {
-    $('div.content-detail').css('background-image', 'none')
+    this.props.changeBackground(null)
   }
 
   componentWillUpdate() {
@@ -103,6 +106,7 @@ class Simon extends Component {
       clickButton.initEvent('mousedown', true, true)
       document.getElementById(buttonID).dispatchEvent(clickButton)
 
+      // eslint-disable-next-line
       const waitThenTurnOffButton = setTimeout(()=>{
         clickButton.initEvent('mouseup', true, true)
         document.getElementById(buttonID).dispatchEvent(clickButton)
@@ -176,4 +180,16 @@ class Simon extends Component {
   }
 }
 
-export default Simon
+function mapStateToProps(state) {
+    return {
+      background: state.changeBackground
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+
+  return bindActionCreators({ changeBackground }, dispatch)
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Simon);

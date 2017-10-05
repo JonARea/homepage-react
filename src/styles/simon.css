@@ -123,8 +123,8 @@
 
 @font-face {
     font-family: 'sf_digital_readoutmedium';
-    src: url('sfdigitalreadout-medium-webfont.woff2') format('woff2'),
-         url('sfdigitalreadout-medium-webfont.woff') format('woff');
+    src: url('./fonts/sfdigitalreadout-medium-webfont.woff2') format('woff2'),
+         url('./fonts/sfdigitalreadout-medium-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 

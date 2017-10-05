@@ -37,7 +37,7 @@ function mapStateToProps(state) {
   }
 function mapDispatchToProps(dispatch) {
 
-  return bindActionCreators({ selectBox: selectBox }, dispatch)
+  return bindActionCreators({ selectBox }, dispatch)
 }
 
 

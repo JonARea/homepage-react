@@ -6,3 +6,12 @@ export function selectBox(page) {
     payload: page
   }
 }
+
+export const CHANGE_BACKGROUND = 'CHANGE_BACKGROUND'
+
+export function changeBackground(image) {
+  return {
+    type: CHANGE_BACKGROUND,
+    payload: image
+  }
+}

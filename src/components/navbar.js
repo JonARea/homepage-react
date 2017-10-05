@@ -10,7 +10,7 @@ export default class NavBar extends Component {
 
             <Box title='homepage' id='homepage'/>
 
-            <Box title='writings' id='writings'/>
+            <Box title='resume' id='resume'/>
 
             <Box title='projects' id='projects'/>
 

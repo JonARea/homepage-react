@@ -1,6 +1,6 @@
 import { homepage } from '../components/home'
-import { writings } from '../components/writings'
 import { projects } from '../components/projects'
+import { resume } from '../components/resume'
 
 import weather from '../containers/weather'
 import quote_generator from '../containers/quote_generator'
@@ -9,7 +9,7 @@ import quote_generator from '../containers/quote_generator'
 export default function () {
   return {
     homepage,
-    writings,
+    resume,
     projects,
     quote_generator,
     weather
