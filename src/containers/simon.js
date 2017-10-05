@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import $ from 'jquery'
 import '../styles/simon.css'
 import { changeBackground } from '../actions/index'
 import { bindActionCreators } from 'redux'
@@ -16,42 +15,59 @@ class Simon extends Component {
     super()
 
     this.state = {
-      on: false,
+      isOn: false,
       count: '',
       sequence: [],
+      guess: []
     }
     this.toggleOnOff = this.toggleOnOff.bind(this)
     this.startSequence = this.startSequence.bind(this)
+    this.lightButton = this.lightButton.bind(this)
+
+    this.originalState = this.state
   }
 
   componentWillMount() {
     this.props.changeBackground("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2-vz_g3WI9RSUqhKIhd6KqFFpxt22PHYxJI6tJXRP1wNq2rTY")
-
   }
 
   componentWillUnmount() {
     this.props.changeBackground(null)
   }
 
-  componentWillUpdate() {
-
-
-  }
-
 
   lightButton(e) {
-    console.log(e)
-    e.target.classList.add(e.target.id + '-lit')
-    console.log(e.target)
-    e.target.id === 'blue-button' ? blueSound.play() :
-    e.target.id === 'yellow-button' ? yellowSound.play() :
-    e.target.id === 'green-button' ? greenSound.play() :
+    const button = e.target
+    button.classList.add(button.id + '-lit')
+    // eslint-disable-next-line
+    const waitThenTurnOffButton = setTimeout(()=>{
+      button.classList.remove(button.id + '-lit')
+    }, 400)
+
+
+    button.id === 'blue-button' ? blueSound.play() :
+    button.id === 'yellow-button' ? yellowSound.play() :
+    button.id === 'green-button' ? greenSound.play() :
     redSound.play()
+    //check if your guess is correct, replay if not, go on if yes
+    this.setState({ guess: [...this.state.guess, button.id] },
+      () => {
+        const GuessIsCorrectLength = this.state.guess.length === this.state.sequence.length
+        const ButtonsAreCorrect = this.state.guess.every((button, index) => {
+          return button === this.state.sequence[index]
+        })
 
-  }
-
-  unlightButton(e) {
-    e.target.classList.remove(e.target.id + '-lit')
+        if (!ButtonsAreCorrect) {
+          document.getElementById('counter-number').innerHTML = '!!'
+          // eslint-disable-next-line
+          const resetCounter = setTimeout(() => {
+            document.getElementById('counter-number').innerHTML = this.state.count
+          }, 600)
+          this.startSequence(true)
+        } else if (ButtonsAreCorrect && GuessIsCorrectLength) {
+          this.startSequence(false)
+        }
+      })
   }
 
   getARandomButton() {
@@ -67,19 +83,21 @@ class Simon extends Component {
     }
   }
 
-  startSequence() {
-
-    let randomButton = this.getARandomButton()
-
-    let count = isNaN(this.state.count) ? 1 : this.state.count + 1
-
-    let sequence = [...this.state.sequence, randomButton]
-
+  startSequence(replay) {
+    console.log(replay)
+    const randomButton = this.getARandomButton()
+    const count = isNaN(this.state.count) ? 1 :
+                  replay ? this.state.count :
+                  this.state.count + 1
+    const sequence = count === 1 ? [randomButton] :
+                     replay ? this.state.sequence :
+                     [...this.state.sequence, randomButton]
     let indexToPlay = 0
 
     this.setState({
       count: count,
-      sequence: sequence
+      sequence: sequence,
+      guess: []
     })
 
     console.log('indextoplay is ' + indexToPlay, 'button to play is ' + sequence[indexToPlay], 'sequence is ' + sequence)
@@ -98,48 +116,51 @@ class Simon extends Component {
 
     setButtonInterval((buttonsPlayed) => playTheButton(buttonsPlayed, sequence), 1600, sequence.length)
 
-      //light it up
+      //light it up but don't register a guess
     function playTheButton(indexToPlay, sequence) {
       const buttonID = sequence[indexToPlay]
-
-      const clickButton = document.createEvent('MouseEvents')
-      clickButton.initEvent('mousedown', true, true)
-      document.getElementById(buttonID).dispatchEvent(clickButton)
+      document.getElementById(buttonID).classList.add(buttonID + '-lit')
 
       // eslint-disable-next-line
       const waitThenTurnOffButton = setTimeout(()=>{
-        clickButton.initEvent('mouseup', true, true)
-        document.getElementById(buttonID).dispatchEvent(clickButton)
-      }, 800)
+        document.getElementById(buttonID).classList.remove(buttonID + '-lit')
+      }, 400)
+
+      buttonID === 'blue-button' ? blueSound.play() :
+      buttonID === 'yellow-button' ? yellowSound.play() :
+      buttonID === 'green-button' ? greenSound.play() :
+      redSound.play()
+
 
     }
 
   }
 
   toggleOnOff () {
-    if (this.state.on) {
-      $('div.content-detail div').css({pointerEvents: 'none'})
-      $('#on-off-switch').css({pointerEvents: 'auto'})
-      $('#on-off-toggle').css({left: 0})
-      this.setState({on: false})
+    if (this.state.isOn) {
+      this.setState(this.originalState)
     } else {
-      $('div.content-detail *').css({pointerEvents: 'auto'})
-      $('#on-off-toggle').css({left: '25px'})
-      this.setState({on: true, count: ' --'})
+      this.setState({isOn: true, count: '-'})
     }
   }
 
+
+
   render() {
+    //turn everything off but the 'on' switch
+    const SimonStyle = this.state.isOn ? {pointerEvents: 'auto'} : {pointerEvents: 'none'}
+    const OnSwitchStyle = {pointerEvents: 'auto'}
+    const OnToggleStyle = this.state.isOn ? {left: '24px'} : {left: '2px'}
 
     return (
-      <div id='simon-border'>
-        <div className='button' id='blue-button' onMouseDown={this.lightButton} onMouseUp={this.unlightButton}>
+      <div id='simon-border' style={SimonStyle}>
+        <div className='button' id='blue-button' onMouseDown={this.lightButton}>
         </div>
-        <div className='button' id='green-button' onMouseDown={this.lightButton} onMouseUp={this.unlightButton}>
+        <div className='button' id='green-button' onMouseDown={this.lightButton}>
         </div>
-        <div className='button' id='red-button' onMouseDown={this.lightButton} onMouseUp={this.unlightButton}>
+        <div className='button' id='red-button' onMouseDown={this.lightButton}>
         </div>
-        <div className='button' id='yellow-button' onMouseDown={this.lightButton} onMouseUp={this.unlightButton}>
+        <div className='button' id='yellow-button' onMouseDown={this.lightButton}>
         </div>
         <div id='center-border'>
           <div id='controls'>
@@ -159,8 +180,8 @@ class Simon extends Component {
 
             <div className='on-off' id='on-off-holder'>
               <p id='on'>ON</p>
-              <div className='on-off' id='on-off-switch' onClick={this.toggleOnOff}>
-                <div className='on-off' id='on-off-toggle'>
+              <div className='on-off' id='on-off-switch' style={OnSwitchStyle} onClick={this.toggleOnOff}>
+                <div className='on-off' id='on-off-toggle' style={OnToggleStyle}>
                 </div>
               </div>
               <p id='off'>OFF</p>
@@ -168,7 +189,7 @@ class Simon extends Component {
 
             <div id='counter-holder'>
               <div id='counter'>
-                <p>{this.state.count}</p>
+                <p id='counter-number'>{this.state.count}</p>
               </div>
               <p>COUNT</p>
             </div>
