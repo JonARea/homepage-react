@@ -5,11 +5,6 @@ import { changeBackground } from '../actions/index'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-const blueSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3')
-const yellowSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3')
-const greenSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3')
-const redSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3')
-
 
 class Simon extends Component {
   constructor() {
@@ -21,9 +16,15 @@ class Simon extends Component {
       sequence: [],
       guess: []
     }
+
+    this.blueSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3')
+    this.yellowSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3')
+    this.greenSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3')
+    this.redSound = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3')
     this.toggleOnOff = this.toggleOnOff.bind(this)
     this.startSequence = this.startSequence.bind(this)
-    this.lightButton = this.lightButton.bind(this)
+    this.clickButton = this.clickButton.bind(this)
+    this.setButtonInterval = this.setButtonInterval.bind(this)
 
     this.originalState = this.state
   }
@@ -37,20 +38,12 @@ class Simon extends Component {
   }
 
 
-  lightButton(e) {
+  clickButton(e) {
     const button = e.target
-    button.classList.add(button.id + '-lit')
-    // eslint-disable-next-line
-    const waitThenTurnOffButton = setTimeout(()=>{
-      button.classList.remove(button.id + '-lit')
-    }, 400)
 
+    this.playButton(button)
 
-    button.id === 'blue-button' ? blueSound.play() :
-    button.id === 'yellow-button' ? yellowSound.play() :
-    button.id === 'green-button' ? greenSound.play() :
-    redSound.play()
-    //check if your guess is correct, replay if not, go on if yes
+    //check if your guess is correct, isReplay if not, go on if yes
     this.setState({ guess: [...this.state.guess, button.id] },
       () => {
         const GuessIsCorrectLength = this.state.guess.length === this.state.sequence.length
@@ -71,6 +64,19 @@ class Simon extends Component {
       })
   }
 
+  playButton(button) {
+    button.classList.add(button.id + '-lit')
+    // eslint-disable-next-line
+    const waitThenTurnOffButton = setTimeout(()=>{
+      button.classList.remove(button.id + '-lit')
+    }, 400)
+
+    button.id === 'blue-button' ? this.blueSound.play() :
+    button.id === 'yellow-button' ? this.yellowSound.play() :
+    button.id === 'green-button' ? this.greenSound.play() :
+    this.redSound.play()
+  }
+
   getARandomButton() {
     const randomNumber = Math.random()
     if (randomNumber < 0.25) {
@@ -84,16 +90,31 @@ class Simon extends Component {
     }
   }
 
-  startSequence(replay) {
-    console.log(replay)
+  setButtonInterval(callback, delay, sequence) {
+    const repetitions = sequence.length
+    let buttonsPlayed = 0;
+
+    const intervalID = window.setInterval(function () {
+
+      const button = document.getElementById(sequence[buttonsPlayed])
+      callback(button);
+
+      //increment buttonsPlayed and check if sequence is finished
+      if (++buttonsPlayed === repetitions) {
+           window.clearInterval(intervalID);
+      }
+    }, delay);
+  }
+
+  startSequence(isReplay) {
+
     const randomButton = this.getARandomButton()
     const count = isNaN(this.state.count) ? 1 :
-                  replay ? this.state.count :
+                  isReplay ? this.state.count :
                   this.state.count + 1
     const sequence = count === 1 ? [randomButton] :
-                     replay ? this.state.sequence :
+                     isReplay ? this.state.sequence :
                      [...this.state.sequence, randomButton]
-    let indexToPlay = 0
 
     this.setState({
       count: count,
@@ -101,40 +122,7 @@ class Simon extends Component {
       guess: []
     })
 
-    console.log('indextoplay is ' + indexToPlay, 'button to play is ' + sequence[indexToPlay], 'sequence is ' + sequence)
-
-    function setButtonInterval(callback, delay, repetitions) {
-      let buttonsPlayed = 0;
-      const intervalID = window.setInterval(function () {
-
-         callback(buttonsPlayed);
-
-         if (++buttonsPlayed === repetitions) {
-             window.clearInterval(intervalID);
-         }
-      }, delay);
-    }
-
-    setButtonInterval((buttonsPlayed) => playTheButton(buttonsPlayed, sequence), 1600, sequence.length)
-
-      //light it up but don't register a guess
-    function playTheButton(indexToPlay, sequence) {
-      const buttonID = sequence[indexToPlay]
-      document.getElementById(buttonID).classList.add(buttonID + '-lit')
-
-      // eslint-disable-next-line
-      const waitThenTurnOffButton = setTimeout(()=>{
-        document.getElementById(buttonID).classList.remove(buttonID + '-lit')
-      }, 400)
-
-      buttonID === 'blue-button' ? blueSound.play() :
-      buttonID === 'yellow-button' ? yellowSound.play() :
-      buttonID === 'green-button' ? greenSound.play() :
-      redSound.play()
-
-
-    }
-
+    this.setButtonInterval((button) => this.playButton(button), 1600, sequence)
   }
 
   toggleOnOff () {
@@ -145,7 +133,10 @@ class Simon extends Component {
     }
   }
 
-
+  renderButtons() {
+    const buttons = ['blue', 'red', 'yellow', 'green']
+    return (buttons.map((name) => <Button name={name} clickButton={this.clickButton} />))
+  }
 
   render() {
     //turn everything off but the 'on' switch
@@ -155,14 +146,8 @@ class Simon extends Component {
 
     return (
       <div id='simon-border' style={SimonStyle}>
-        <div className='button' id='blue-button' onMouseDown={this.lightButton}>
-        </div>
-        <div className='button' id='green-button' onMouseDown={this.lightButton}>
-        </div>
-        <div className='button' id='red-button' onMouseDown={this.lightButton}>
-        </div>
-        <div className='button' id='yellow-button' onMouseDown={this.lightButton}>
-        </div>
+        {this.renderButtons()}
+
         <div id='center-border'>
           <div id='controls'>
             <h1>Simon</h1>
@@ -202,16 +187,8 @@ class Simon extends Component {
   }
 }
 
-function mapStateToProps(state) {
-    return {
-      
-    }
-}
-
 function mapDispatchToProps(dispatch) {
-
   return bindActionCreators({ changeBackground }, dispatch)
 }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Simon);
+export default connect(null, mapDispatchToProps)(Simon);
