@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Button from '../components/simon_button'
 import '../styles/simon.css'
 import { changeBackground } from '../actions/index'
 import { bindActionCreators } from 'redux'
@@ -203,7 +204,7 @@ class Simon extends Component {
 
 function mapStateToProps(state) {
     return {
-      background: state.changeBackground
+      
     }
 }
 
