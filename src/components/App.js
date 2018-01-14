@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './navbar'
 import Contents from '../containers/detail_view'
-import AppHeader from './app_header'
+import AppHeader from './App_header'
 
 class App extends Component {
   render() {

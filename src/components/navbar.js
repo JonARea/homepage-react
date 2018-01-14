@@ -1,21 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Box from '../containers/box'
 import '../styles/nav.css'
 
-export default class NavBar extends Component {
-  render() {
-    return (
-      <nav className='navbar'>
-        <ul className='nav navbar-nav'>
+const NavBar = () => (
+  <div className='navbar'>
+    <Box title='homepage' id='homepage'/>
 
-            <Box title='homepage' id='homepage'/>
+    <Box title='resume' id='resume'/>
 
-            <Box title='resume' id='resume'/>
+    <Box title='projects' id='projects'/>
+  </div>
+)
 
-            <Box title='projects' id='projects'/>
-
-        </ul>
-      </nav>
-    )
-  }
-}
+export default NavBar

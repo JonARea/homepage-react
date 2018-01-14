@@ -2,32 +2,44 @@
 
 .App-logo {
   margin: 10px -45px -5px 0;
-  width: 8%;
-  min-width: 60px;
+  width: 5%;
+  min-width: 20px;
   display: inline-block;
   box-shadow: 2px 2px 5px black;
 }
 
 .App-header {
-  text-align: center;
+  display: flex;
+  padding: 2vh 0;
   background: #1e1108;
-  height: 175px;
+  height: 7%;
   color: white;
   border-bottom: 2px groove #1BA;
 }
 
+.App-header > h1 {
+  flex: 1 1;
+}
+
 #facebook, #github {
-    float: left;
+    justify-self: flex-start;
     display: inline-block;
-    margin: 10px 0 0 10px;
+    margin: 0.5vh 0 0 1vw;
     height: 30px;
     width: 30px;
-    padding: 0 0 5px 5px;
+}
+
+#githublink {
+  flex: .95 1;
 }
 
 #codewars {
-  float: right;
+  justify-self: flex-end;
   display: inline-block;
-  margin: 10px 10px 0 0;
+  margin: 1vh 1vw 0 0;
 
+}
+
+.home-window {
+  background: '../images/motif-batik-Sidomukti-solo.jpg';
 }
