@@ -11,38 +11,29 @@ import Simon from '../containers/simon'
 
   class ProjectLink extends Component {
 
-    state = {
-      title: this.props.title
-    }
-
-
     render() {
       return (
         <li className='link'
-                onClick={() => this.props.selectBox(this.projectApp())}>
-            {this.state.title}
-
+                onClick={() => this.props.selectBox(this.switchProjects())}>
+            {this.props.title}
         </li>
       )
     }
 
-    projectApp() {
-      switch (this.state.title) {
-        case 'quote_generator':
-          return <QuoteGenerator/>
-        case 'weather':
-          return <Weather/>
-        case 'calculator':
+    switchProjects() {
+      switch (this.props.title) {
+        case 'Quote_generator':
+          return <QuoteGenerator />
+        case 'Weather':
+          return <Weather />
+        case 'Calculator':
           return <Calculator />
-        case 'simon':
+        case 'Simon':
           return <Simon />
         default:
           return null
-
-
       }
     }
-
   }
 
 function mapDispatchToProps(dispatch) {
