@@ -1,13 +1,18 @@
 .box {
-  height: 8vh;
-  width: 25vw;
+  height: 50vh;
+  width: 33vw;
+  margin: 17.5vh 8vw;
   background-color: black;
   color: aliceblue;
   text-align: center;
-  font-variant-caps: small-caps;
   border: solid thin #444;
   box-shadow: 3px 3px 10px black;
   flex: 1 1 1px;
+  padding: 12vh;
+}
+
+.boxTitle {
+  font-family: 'Raleway', sans-serif;
 }
 
 #resume {
@@ -19,12 +24,9 @@
   background-image: url('https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?h=350&auto=compress&cs=tinysrgb');
 }
 
-#homepage {
-  background-image: url('https://images.pexels.com/photos/239107/pexels-photo-239107.jpeg?h=350&auto=compress&cs=tinysrgb');
-}
-
 .box:hover {
   border-color: white !important;
+  cursor: pointer;
 }
 .clicked-box {
   background: black;

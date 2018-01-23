@@ -15,11 +15,11 @@ class Box extends Component {
 
     return (
       <div id={id} className={this.state.clicked ? 'box clicked-box' : 'box'}
-        onClick={() => this.props.selectBox(this.props.pageList[title])}
+        onClick={() => this.props.selectBox(this.props.pageList[title.toLowerCase()])}
         onMouseDown={()=> this.setState({clicked: true})}
         onMouseUp={()=> this.setState({clicked: false})}
       >
-        <h2>{title}</h2>
+        <h1 className="boxTitle">{title}</h1>
       </div>
     )
   }
