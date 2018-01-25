@@ -24,10 +24,14 @@
   background-image: url('https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?h=350&auto=compress&cs=tinysrgb');
 }
 
-.box:hover {
+  /* for smart box */
+
+/* .box:hover {
   border-color: white !important;
   cursor: pointer;
 }
+
 .clicked-box {
   background: black;
 }
+*/

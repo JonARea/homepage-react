@@ -22,11 +22,14 @@
   margin: 0 1vw;
 }
 
-#facebook, #github, #linkedin {
+.nav-icon {
     display: inline-block;
     height: 30px;
-    width: 30px;
     border-radius: 2px;
+}
+
+#gmail {
+  height: 38px;
 }
 
 .nav-link {

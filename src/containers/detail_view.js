@@ -7,13 +7,11 @@ class ContentDetail extends Component {
   render() {
     return (
       <div className='content-detail' style={{backgroundImage: `url(${this.props.backgroundImage})`}} >
-        {this.props.activePage || this.props.contents.homepage}
-
+        {this.props.activePage || this.props.contents.projects}
       </div>
     )
   }
 }
-
 
 function mapStateToProps(state) {
   return {
