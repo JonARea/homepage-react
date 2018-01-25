@@ -19,8 +19,14 @@ class App extends Component {
         <div className='container-fluid'>
           <NavBoxes />
         </div>
-        <div className='container-fluid detail_view'>
-          <Contents />
+        <div className='container-fluid detail-view'>
+          <Contents fixed />
+        </div>
+        <div className='container-fluid detail-view'>
+          <Contents project="Simon" />
+        </div>
+        <div className='container-fluid footer'>
+          (c) Jon Rea 2017
         </div>
       </div>
 

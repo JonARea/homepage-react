@@ -19,3 +19,24 @@
 ul {
   margin-left: -5px;
 }
+
+.project {
+  display: flex;
+  padding: 1vh 5vw;
+}
+
+.projectDescription {
+  padding: 7vh 10vw;
+}
+
+.projectPhoto {
+  height: 50vh;
+}
+
+.projectPhoto.arimos {
+  background: url('../images/arimos.png');
+}
+
+.projectPhoto.niyagapedia {
+  background: url('../images/arimos.png');
+}

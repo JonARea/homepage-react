@@ -1,7 +1,6 @@
 .content-detail {
   text-align: center;
   padding: 20px 50px 10px 50px;
-  min-height: 400px;
   background: #f8f8ff;
 }
 
@@ -9,4 +8,9 @@
   display: inline-block;
   width: 40%;
   min-width: 200px;
+}
+
+.content-detail.simon {
+  background-image: url('../images/wood.jpeg');
+  padding: 20px 50px 10px 30px;
 }
