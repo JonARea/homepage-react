@@ -13,7 +13,7 @@ import Simon from '../containers/simon'
 
     render() {
       return (
-        <li className='link'
+        <li className='link project'
                 onClick={() => this.props.selectBox(this.switchProjects())}>
             {this.props.title}
         </li>

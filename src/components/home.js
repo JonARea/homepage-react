@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/homepage.css'
 
 export const homepage =
   <div className='small-container home-window' >

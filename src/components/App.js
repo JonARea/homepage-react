@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
-import NavBar from './navbar'
+import NavBoxes from './navBoxes'
 import Contents from '../containers/detail_view'
-import AppHeader from './App_header'
+import Header from './header'
+import {homepage} from './home'
+import '../styles/batik.css'
 
 class App extends Component {
   render() {
     return (
       <div>
-        < AppHeader />
-        <div className='container-fluid navigation'>
-          <NavBar />
+        <Header />
+        <div className='batik'>
+          <h2 className="purpose">
+            Software Engineer currently looking for great opportunites
+          </h2>
         </div>
-        <div className='container-fluid detail_view'>
-          <Contents />
+        {homepage}
+        <div className='container-fluid'>
+          <NavBoxes />
+        </div>
+        <div className='container-fluid detail-view'>
+          <Contents fixed />
+        </div>
+        <div className='container-fluid detail-view'>
+          <Contents project="Simon" />
+        </div>
+        <div className='container-fluid footer'>
+          (c) Jon Rea 2017
         </div>
       </div>
 

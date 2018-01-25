@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import '../styles/content-detail.css'
+import Simon from './simon'
 
 class ContentDetail extends Component {
 
   render() {
     return (
-      <div className='content-detail' style={{backgroundImage: `url(${this.props.backgroundImage})`}} >
-        {this.props.activePage || this.props.contents.homepage}
-
+      <div className={this.props.fixed ? 'content-detail fixed' : 'content-detail simon'} >
+        {this.props.project &&
+        <div>
+          <Simon />
+        </div>
+        ||
+        this.props.activePage
+        ||
+        this.props.contents.projects}
       </div>
     )
   }
 }
-
 
 function mapStateToProps(state) {
   return {
