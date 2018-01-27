@@ -1,9 +1,10 @@
 .batik {
   background: url('../images/mountainSnow.jpg');
   background-size: cover;
-  height: 80vh;
-  width: 100vw;
+  background-position: center;
+  height: 60vh;
   display: flex;
+  flex: 1 1;
   align-items: center;
   justify-content: center;
 }
@@ -11,3 +12,5 @@
 .purpose {
   color: #f8f8ff;
 }
+
+

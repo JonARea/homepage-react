@@ -25,11 +25,11 @@ export const projects =
       </li>
       <hr />
       <li className="project">
-        <a href="arimosjs.herokuapp.com">
+        <a href="http://arimosjs.herokuapp.com">
           <img className="projectPhoto arimos" src={arimos} alt="Pixel Dungeon" />
         </a>
         <div className="projectDescription">
-          <a href="arimosjs.herokuapp.com">Arimos</a>
+          <a href="http://arimosjs.herokuapp.com">Arimos</a>
           <p>A retro pixel dungeon built in a 3-day hackathon     using Phaser.js. Multi-platform ready.
           </p>
         </div>
