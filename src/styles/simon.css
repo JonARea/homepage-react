@@ -1,7 +1,7 @@
 
 #simon-border {
   position: relative;
-  margin: 50px 300px 0 300px;
+  margin-top: 50px;
   padding: 20px;
   height: 600px;
   width: 600px;
@@ -12,11 +12,6 @@
 
 .simon-border h1 {
   font-size: 60px;
-}
-
-
-.button {
-    z-index: 1;
 }
 
 #green-button {
@@ -87,7 +82,6 @@
   left: 145px;
   background-color: #212121;
   border-radius: 50%;
-  z-index: 2;
 }
 
 #controls {
@@ -98,7 +92,6 @@
   left: 15px;
   background-color: #BDBDBD;
   border-radius: 50%;
-  z-index: 3;
 }
 
 #counter-holder {

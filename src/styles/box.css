@@ -1,14 +1,13 @@
 .box {
-  height: 50vh;
-  width: 33vw;
-  margin: 17.5vh 8vw;
+  height: 20vh;
+  margin: 10vh 20vw;
   background-color: black;
   color: aliceblue;
   text-align: center;
   border: solid thin #444;
   box-shadow: 3px 3px 10px black;
   flex: 1 1 1px;
-  padding: 12vh;
+  padding: 2vh;
 }
 
 .boxTitle {

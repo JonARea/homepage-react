@@ -32,6 +32,10 @@
   height: 38px;
 }
 
+#gong {
+  height: 30px;
+}
+
 .nav-link {
   flex: 0 1;
   margin: 0 .75vw;

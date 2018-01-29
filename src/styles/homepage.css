@@ -1,8 +1,7 @@
 .home-window {
-  height: 30vh;
-  width: 100vw;
   text-align: center;
-  padding: 2em 20vw;
-  font-size: 1.5em;
+  padding: 2em 2vw;
+  font-size: 1.2em;
   background-color: #f8f8ff;
+  flex: 1, 0.75;
 }

@@ -14,3 +14,8 @@
   background-image: url('../images/wood.jpeg');
   padding: 20px 50px 10px 30px;
 }
+
+.container-simon {
+  margin: 0 20vw;
+  padding: 0 2vw;
+}
