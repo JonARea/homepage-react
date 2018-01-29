@@ -13,6 +13,9 @@ export default class Header extends Component {
     return (
       <Headroom className="headroom">
         <h1>Jon Rea</h1>
+        <a className="nav-link" href="http://kusumalaras.org">
+          <img id="gong" src={gong} alt="Gong"/>
+        </a>
         <a className="nav-link" href="mailto:jonarea@gmail.com">
           <img id="gmail" src={gmail} alt="Email me"/>
         </a>

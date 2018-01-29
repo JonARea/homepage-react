@@ -1,0 +1,18 @@
+.teachingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.teachingProjects {
+  display: flex;
+}
+
+#classPic {
+  height: 50vh;
+}
+
+.classParagraph {
+  padding: 0 3vw;
+  flex: 1 1;
+}

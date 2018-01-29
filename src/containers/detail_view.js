@@ -10,10 +10,10 @@ class ContentDetail extends Component {
       <div className={this.props.fixed ? 'content-detail fixed' : 'content-detail simon'} >
         {this.props.project &&
         <div className="container-simon">
-          <h2>Take a break to relive your childhood.</h2>
-          <h3>Turn up the volume and click the on-switch to start. How long can you follow the pattern?</h3>
-          <h3>Javascript, HTML and CSS.
-          </h3>
+          <h3>Take a break to relive your childhood.</h3>
+          <h3>Turn up the volume and click the on-switch to start.</h3>
+          <p>Javascript, HTML and CSS.
+          </p>
           <Simon />
         </div>
         ||

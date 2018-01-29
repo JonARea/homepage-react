@@ -14,11 +14,6 @@
   font-size: 60px;
 }
 
-
-.button {
-    z-index: 1;
-}
-
 #green-button {
   position: absolute;
   top: 33px;
@@ -87,7 +82,6 @@
   left: 145px;
   background-color: #212121;
   border-radius: 50%;
-  z-index: 2;
 }
 
 #controls {
@@ -98,7 +92,6 @@
   left: 15px;
   background-color: #BDBDBD;
   border-radius: 50%;
-  z-index: 3;
 }
 
 #counter-holder {

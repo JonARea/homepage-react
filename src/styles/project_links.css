@@ -22,11 +22,11 @@ ul {
 
 .project {
   display: flex;
-  padding: 1vh 5vw;
+  padding: 1vh 2vw;
 }
 
 .projectDescription {
-  padding: 7vh 10vw;
+  padding: 7vh 6vw;
 }
 
 .projectPhoto {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavBoxes from './navBoxes'
 import Contents from '../containers/detail_view'
 import Header from './header'
-import {homepage} from './home'
+import Class from './class'
 import '../styles/batik.css'
 
 class App extends Component {
@@ -26,6 +26,9 @@ class App extends Component {
         </div>
         <div className='container-fluid detail-view'>
           <Contents project="Simon" />
+        </div>
+        <div className='container-fluid detail-view'>
+          <Class />
         </div>
         <div className='container-fluid footer'>
           (c) Jon Rea 2017
