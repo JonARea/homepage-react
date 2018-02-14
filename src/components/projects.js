@@ -2,10 +2,31 @@ import React from 'react'
 import '../styles/project_links.css'
 import arimos from '../images/arimos.png'
 import niyagapedia from '../images/sekaten.jpg'
+import warbler from '../images/Warbler.png'
 
 export const projects =
   <div>
     <ul className="list-group project_list">
+    <li className="project">
+        <a href="https://github.com/whistling-duck-labs/warbler">
+          <img className="projectPhoto warbler" src={warbler} alt="Warbler Desktop Application" />
+          View the source code
+        </a>
+        <div className="projectDescription">
+          <h3>Warbler</h3>
+          <p>A desktop application for making easy database migrations. Responsible for migration scripting, testing, and implementation of the Redux store.
+          </p>
+          <h4>
+            Technologies
+          </h4>
+          <p>
+            Electron, React, Redux, Node.js, Webpack, Babel, Immutable.js
+          </p>
+          <a href="https://www.youtube.com/watch?v=RLWiyAFp2mM">Watch the presentation.
+          </a>
+        </div>
+      </li>
+      <hr />
       <li className="project">
         <div className="projectDescription">
           <h3>
