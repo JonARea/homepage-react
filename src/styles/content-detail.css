@@ -1,6 +1,5 @@
 .content-detail {
   text-align: center;
-  padding: 20px 50px 10px 50px;
   background: #f8f8ff;
 }
 
@@ -11,11 +10,7 @@
 }
 
 .content-detail.simon {
-  background-image: url('../images/wood.jpeg');
-  padding: 20px 50px 10px 30px;
-}
-
-.container-simon {
-  margin: 0 20vw;
-  padding: 0 2vw;
+  background-image: url('../images/wood.jpg');
+  background-size: cover;
+  padding: 5vh;
 }

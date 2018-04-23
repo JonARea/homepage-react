@@ -142,7 +142,7 @@ class Simon extends Component {
     //turn everything off but the 'on' switch
     const SimonStyle = this.state.isOn ? {pointerEvents: 'auto'} : {pointerEvents: 'none'}
     const OnSwitchStyle = {pointerEvents: 'auto'}
-    const OnToggleStyle = this.state.isOn ? {left: '24px'} : {left: '2px'}
+    const OnToggleStyle = this.state.isOn ? {left: '0'} : {left: '2.5vw'}
 
     return (
       <div id='simon-border' style={SimonStyle}>
