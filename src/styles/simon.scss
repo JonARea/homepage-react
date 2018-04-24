@@ -1,0 +1,219 @@
+@font-face {
+    font-family: 'sf_digital_readoutmedium';
+    src: url('./fonts/sfdigitalreadout-medium-webfont.woff2') format('woff2'),
+        url('./fonts/sfdigitalreadout-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container-simon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin styling($game-size, $main-border-width, $button-size) {
+  #simon-border {
+    position: relative;
+    margin-top: 5vh;
+    height: $game-size;
+    width: $game-size;
+    background-color: #212121;
+    border-radius: 50%;
+    box-shadow: 0 0 25px 2px #444
+  }
+
+  #simon-title {
+    font-size: 1.8em;
+  }
+
+  .simon-button-label {
+    font-size: 0.7em;
+  }
+
+  #green-button {
+    position: absolute;
+    height: $button-size;
+    width: $button-size;
+    top: $main-border-width;
+    left: $main-border-width;
+    background-color: green;
+    border-top-left-radius: 100%;
+
+  }
+  .green-button-lit {
+    background-color: #3F3 !important;
+  }
+
+
+  #red-button {
+    position: absolute;
+    height: $button-size;
+    width: $button-size;
+    top: $main-border-width;
+    left: $button-size + ($main-border-width * 2);
+    background-color: #B11;
+    border-top-right-radius: 100%;
+  }
+
+  .red-button-lit {
+    background-color: #F33 !important;
+  }
+
+
+  #yellow-button {
+    position: absolute;
+    height: $button-size;
+    width: $button-size;
+    top: $button-size + ($main-border-width * 2);
+    left: $main-border-width;
+    background-color: #cc0;
+    border-bottom-left-radius: 100%;
+  }
+
+  .yellow-button-lit {
+    background-color: #FFFF40 !important;
+  }
+
+
+  #blue-button {
+    position: absolute;
+    height: $button-size;
+    width: $button-size;
+    top: $button-size + ($main-border-width * 2);
+    left: $button-size + ($main-border-width * 2);
+    background-color: #00A;
+    border-bottom-right-radius: 100%;
+  }
+
+  .blue-button-lit {
+    background-color: #4040FF !important;
+  }
+
+
+  #center-border {
+    position: absolute;
+    height: $game-size / 2;
+    width: $game-size / 2;
+    top: $game-size / 4;
+    left: $game-size / 4;
+    background-color: #212121;
+    border-radius: 50%;
+  }
+  $control-size: ($game-size / 2) - ($main-border-width * 2);
+  #controls {
+    position: absolute;
+    height: $control-size;
+    width: $control-size;
+    top: $main-border-width;
+    left: $main-border-width;
+    background-color: #BDBDBD;
+    border-radius: 50%;
+  }
+
+  #counter-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: $control-size / 2 - $main-border-width;
+    left: $control-size / 10;
+  }
+
+
+  #counter {
+    height: $control-size / 6.7;
+    width: $control-size / 4.5;
+    border-radius: 20%;
+    background-color: #511;
+    color: #FF3333;
+  }
+
+  #start-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: $control-size / 2 - $main-border-width;
+    left: $control-size / 2 - 1vw;
+  }
+
+  #start-button {
+    height: $main-border-width*1.5;
+    width: $main-border-width*1.5;
+    border: 4px solid #212121;
+    background-color: red;
+    border-radius: 50%;
+  }
+
+  #strict-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: $control-size / 2 - $main-border-width;
+    left: $control-size - ($control-size / 3.8);
+  }
+
+  #strict-button {
+    height: $main-border-width*1.5;
+    width: $main-border-width*1.5;
+    border: 4px solid #212121;
+    background-color: yellow;
+    border-radius: 50%;
+  }
+
+  #on-off-holder {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: $control-size - $control-size / 4;
+    left: $control-size / 4;
+    width: $game-size / 5;
+  }
+
+  #on-off-switch {
+    padding: 0.2vw;
+    left: $control-size / 4;
+    height: $control-size / 10;
+    width: $control-size / 4;
+    background-color: #212121;
+    border-radius: 4px;
+  }
+
+  #on-off-toggle {
+    position: relative;
+    height: ($control-size / 10) - 0.5vw;
+    width: $control-size / 8 - 0.3vw;
+    background-color: blue;
+    border-radius: 2px;
+  }
+}
+
+@media (min-width: 800px) {
+  $game-size: 50vw;
+  $main-border-width: $game-size / 25;
+  $button-size: $main-border-width * 11;
+  @include styling($game-size, $main-border-width, $button-size);
+  #counter > p {
+    position: relative;
+    font-family: 'sf_digital_readoutmedium';
+    font-size: 2.3em;
+    margin: 0;
+  }
+}
+
+@media (max-width: 799px) {
+  $game-size: 90vw;
+  $main-border-width: $game-size / 25;
+  $button-size: $main-border-width * 11;
+  @include styling($game-size, $main-border-width, $button-size);
+  #counter > p {
+    position: relative;
+    top: -0.7vw;
+    font-family: 'sf_digital_readoutmedium';
+    font-size: 1.7em;
+    margin: 0;
+  }
+}

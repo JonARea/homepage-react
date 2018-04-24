@@ -12,25 +12,24 @@ class App extends Component {
         <Header />
         <div className="top-row">
           <div className='batik'>
-            <h2 className="purpose">
+            <h1 className="purpose">
               Software Engineer currently looking for great opportunites
-            </h2>
+            </h1>
           </div>
-          {/* {homepage} */}
         </div>
-        <div className='container-fluid'>
+        <div>
           <NavBoxes />
         </div>
-        <div className='container-fluid detail-view'>
+        <div className='detail-view'>
           <Contents fixed />
         </div>
-        <div className='container-fluid detail-view'>
+        <div className='detail-view'>
           <Contents project="Simon" />
         </div>
-        <div className='container-fluid detail-view'>
+        <div className='detail-view'>
           <Class />
         </div>
-        <div className='container-fluid footer'>
+        <div className='footer'>
           (c) Jon Rea 2017
         </div>
       </div>

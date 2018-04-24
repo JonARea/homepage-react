@@ -1,3 +1,5 @@
-##My homepage
+# My homepage
 
-Updated on November 5th, 2017
+## React - Redux - Node.js - Heroku
+
+npm install, npm start

@@ -12,7 +12,7 @@ export const resume =
     <h2>Projects</h2>
     <ul>
       <li>
-        <h3>Niyagapedia</h3>
+        <h2>Niyagapedia</h2>
         <p>BlahBlah</p>
       </li>
       <li>
