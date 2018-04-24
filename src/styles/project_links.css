@@ -35,30 +35,25 @@ li > a {
 @media (min-width: 800px) {
   .projectPhoto {
     width: 50vw;
+    margin: 1em 0;
   }
 }
 
 @media (max-width: 799px) {
   .projectPhoto {
-    width: 100vw;
+    margin: 1em 0;
+    width: 102vw;
   }
-
   .project {
     flex-wrap: wrap;
   }
-}
-.projectPhoto.arimos {
-  box-shadow: 0px 10px 22px #555;
-  margin: 1em 0;
-}
-
-.projectPhoto.niyagapedia {
-  box-shadow: 0px 10px 22px #555;
-  margin: 1em 0;
+  .projectPhoto.warbler {
+    object-fit: cover;
+    height: 40vh;
+  }
 }
 
-.projectPhoto.warbler {
-  margin: 1em 0;
-  object-fit: cover;
-  height: 40vh;
+.projectPhoto.arimos, .projectPhoto.niyagapedia {
+  box-shadow: 0px 10px 22px #555;
 }
+
