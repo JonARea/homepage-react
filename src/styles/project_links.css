@@ -20,34 +20,45 @@ ul {
   margin-left: -5px;
 }
 
+li > a {
+  padding: 3.5vh 0;
+}
+
 .project {
   display: flex;
-  flex-wrap: wrap;
-  padding: 1vh 2vw;
 }
 
 .projectDescription {
-  padding: 7vh 6vw;
+  padding: 2vh 6vw;
 }
 
-@media (min-size: 800px) {
+@media (min-width: 800px) {
   .projectPhoto {
     width: 50vw;
   }
 }
-@media (max-size: 799px) {
+
+@media (max-width: 799px) {
   .projectPhoto {
-    width: 95vw;
+    width: 100vw;
+  }
+
+  .project {
+    flex-wrap: wrap;
   }
 }
 .projectPhoto.arimos {
-  background: url("../images/arimos.png");
   box-shadow: 0px 10px 22px #555;
   margin: 1em 0;
 }
 
 .projectPhoto.niyagapedia {
-  background: url("../images/arimos.png");
   box-shadow: 0px 10px 22px #555;
   margin: 1em 0;
+}
+
+.projectPhoto.warbler {
+  margin: 1em 0;
+  object-fit: cover;
+  height: 40vh;
 }

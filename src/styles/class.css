@@ -6,10 +6,22 @@
 
 .teachingProjects {
   display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
 }
 
-#classPic {
-  height: 50vh;
+@media (min-width: 800px) {
+  #classPic {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 799px) {
+  #classPic {
+    object-fit: cover;
+    width: 100vw;
+    height: 30vh;
+  }
 }
 
 .classParagraph {

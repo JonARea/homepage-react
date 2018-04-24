@@ -10,15 +10,15 @@ export const projects =
     <li className="project">
         <a href="https://github.com/whistling-duck-labs/warbler">
           <img className="projectPhoto warbler" src={warbler} alt="Warbler Desktop Application" />
-          View the source code
+          <h3>View the source code</h3>
         </a>
         <div className="projectDescription">
-          <h3>Warbler</h3>
+          <h2>Warbler</h2>
           <p>A desktop application for making easy database migrations. Responsible for migration scripting, testing, and implementation of the Redux store.
           </p>
-          <h4>
+          <h3>
             Technologies
-          </h4>
+          </h3>
           <p>
             Electron, React, Redux, Node.js, Webpack, Babel, Immutable.js
           </p>
@@ -29,9 +29,9 @@ export const projects =
       <hr />
       <li className="project">
         <div className="projectDescription">
-          <h3>
+          <h2>
             Niyagapedia
-          </h3>
+          </h2>
           <p>
             An encyclopedia of Javanese Gamelan Musicians. A permanent home for memories of talented people who have touched the lives of many.
           </p>
@@ -55,12 +55,12 @@ export const projects =
           Play Arimos
         </a>
         <div className="projectDescription">
-          <h3>Arimos</h3>
+          <h2>Arimos</h2>
           <p>A retro pixel dungeon built in a 3-day hackathon. Multi-platform ready.
           </p>
-          <h4>
+          <h3>
             Technologies
-          </h4>
+          </h3>
           <p>
             Phaser.js, Express, Webpack, Cordova, Heroku
           </p>
