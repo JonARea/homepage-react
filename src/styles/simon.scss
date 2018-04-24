@@ -23,8 +23,12 @@
     box-shadow: 0 0 25px 2px #444
   }
 
-  .controls > h1 {
-    font-size: 4em;
+  #simon-title {
+    font-size: 1.8em;
+  }
+
+  .simon-button-label {
+    font-size: 0.7em;
   }
 
   #green-button {
@@ -113,7 +117,7 @@
     align-items: center;
     position: absolute;
     top: $control-size / 2 - $main-border-width;
-    left: $control-size / 8;
+    left: $control-size / 10;
   }
 
 
@@ -123,13 +127,6 @@
     border-radius: 20%;
     background-color: #511;
     color: #FF3333;
-  }
-
-  #counter > p {
-    position: relative;
-    top: -1.7vh;
-    font-family: 'sf_digital_readoutmedium';
-    font-size: 3em;
   }
 
   #start-holder {
@@ -155,7 +152,7 @@
     align-items: center;
     position: absolute;
     top: $control-size / 2 - $main-border-width;
-    left: $control-size - ($control-size / 4);
+    left: $control-size - ($control-size / 3.8);
   }
 
   #strict-button {
@@ -168,15 +165,16 @@
 
   #on-off-holder {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     position: absolute;
     top: $control-size - $control-size / 4;
     left: $control-size / 4;
-    width: 10vw;
+    width: $game-size / 5;
   }
 
   #on-off-switch {
-    padding: 0.4vw;
+    padding: 0.2vw;
     left: $control-size / 4;
     height: $control-size / 10;
     width: $control-size / 4;
@@ -186,8 +184,8 @@
 
   #on-off-toggle {
     position: relative;
-    height: 1.2vw;
-    width: 2vw;
+    height: ($control-size / 10) - 0.5vw;
+    width: $control-size / 8 - 0.3vw;
     background-color: blue;
     border-radius: 2px;
   }
@@ -198,7 +196,12 @@
   $main-border-width: $game-size / 25;
   $button-size: $main-border-width * 11;
   @include styling($game-size, $main-border-width, $button-size);
-
+  #counter > p {
+    position: relative;
+    font-family: 'sf_digital_readoutmedium';
+    font-size: 2.3em;
+    margin: 0;
+  }
 }
 
 @media (max-width: 799px) {
@@ -206,4 +209,11 @@
   $main-border-width: $game-size / 25;
   $button-size: $main-border-width * 11;
   @include styling($game-size, $main-border-width, $button-size);
+  #counter > p {
+    position: relative;
+    top: -0.7vw;
+    font-family: 'sf_digital_readoutmedium';
+    font-size: 1.7em;
+    margin: 0;
+  }
 }

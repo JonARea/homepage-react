@@ -21,8 +21,12 @@
     box-shadow: 0 0 25px 2px #444;
   }
 
-  .simon-border h1 {
-    font-size: 60px;
+  #simon-title {
+    font-size: 1.8em;
+  }
+
+  .simon-button-label {
+    font-size: 0.7em;
   }
 
   #green-button {
@@ -107,7 +111,7 @@
     align-items: center;
     position: absolute;
     top: 8.5vw;
-    left: 2.625vw;
+    left: 2.1vw;
   }
 
   #counter {
@@ -116,13 +120,6 @@
     border-radius: 20%;
     background-color: #511;
     color: #FF3333;
-  }
-
-  #counter > p {
-    position: relative;
-    top: -1.7vh;
-    font-family: "sf_digital_readoutmedium";
-    font-size: 3em;
   }
 
   #start-holder {
@@ -148,7 +145,7 @@
     align-items: center;
     position: absolute;
     top: 8.5vw;
-    left: 15.75vw;
+    left: 15.4736842105vw;
   }
 
   #strict-button {
@@ -161,6 +158,7 @@
 
   #on-off-holder {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     position: absolute;
     top: 15.75vw;
@@ -169,7 +167,7 @@
   }
 
   #on-off-switch {
-    padding: 0.4vw;
+    padding: 0.2vw;
     left: 5.25vw;
     height: 2.1vw;
     width: 5.25vw;
@@ -179,10 +177,17 @@
 
   #on-off-toggle {
     position: relative;
-    height: 1.2vw;
-    width: 2vw;
+    height: 1.6vw;
+    width: 2.325vw;
     background-color: blue;
     border-radius: 2px;
+  }
+
+  #counter > p {
+    position: relative;
+    font-family: "sf_digital_readoutmedium";
+    font-size: 2.3em;
+    margin: 0;
   }
 }
 @media (max-width: 799px) {
@@ -196,8 +201,12 @@
     box-shadow: 0 0 25px 2px #444;
   }
 
-  .simon-border h1 {
-    font-size: 60px;
+  #simon-title {
+    font-size: 1.8em;
+  }
+
+  .simon-button-label {
+    font-size: 0.7em;
   }
 
   #green-button {
@@ -282,7 +291,7 @@
     align-items: center;
     position: absolute;
     top: 15.3vw;
-    left: 4.725vw;
+    left: 3.78vw;
   }
 
   #counter {
@@ -291,13 +300,6 @@
     border-radius: 20%;
     background-color: #511;
     color: #FF3333;
-  }
-
-  #counter > p {
-    position: relative;
-    top: -1.7vh;
-    font-family: "sf_digital_readoutmedium";
-    font-size: 3em;
   }
 
   #start-holder {
@@ -323,7 +325,7 @@
     align-items: center;
     position: absolute;
     top: 15.3vw;
-    left: 28.35vw;
+    left: 27.8526315789vw;
   }
 
   #strict-button {
@@ -336,15 +338,16 @@
 
   #on-off-holder {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     position: absolute;
     top: 28.35vw;
     left: 9.45vw;
-    width: 10vw;
+    width: 18vw;
   }
 
   #on-off-switch {
-    padding: 0.4vw;
+    padding: 0.2vw;
     left: 9.45vw;
     height: 3.78vw;
     width: 9.45vw;
@@ -354,9 +357,17 @@
 
   #on-off-toggle {
     position: relative;
-    height: 1.2vw;
-    width: 2vw;
+    height: 3.28vw;
+    width: 4.425vw;
     background-color: blue;
     border-radius: 2px;
+  }
+
+  #counter > p {
+    position: relative;
+    top: -0.7vw;
+    font-family: "sf_digital_readoutmedium";
+    font-size: 1.7em;
+    margin: 0;
   }
 }

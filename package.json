@@ -17,7 +17,7 @@
     "s": "^0.1.1"
   },
   "scripts": {
-    "start": "sass src/styles/simon.scss src/styles/simon.css && sass src/styles/project_links.scss src/styles/project_links.css && react-scripts start",
+    "start": "sass src/styles/simon.scss src/styles/simon.css && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
