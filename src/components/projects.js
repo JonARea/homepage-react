@@ -7,7 +7,8 @@ import warbler from '../images/Warbler.png'
 export const projects =
   <div>
     <ul className="list-group project_list">
-    <li className="project">
+      <hr />
+      <li className="project">
         <a href="https://github.com/whistling-duck-labs/warbler">
           <img className="projectPhoto warbler" src={warbler} alt="Warbler Desktop Application" />
           <h3>View the source code</h3>
@@ -44,7 +45,7 @@ export const projects =
         </div>
           <a href='https://niyagapedia.herokuapp.com'>
             <img className="projectPhoto niyagapedia" src={niyagapedia} alt="Sekaten" />
-            Go to the Encyclopedia
+            <h3>Go to the Encyclopedia</h3>
           </a>
       </li>
       <hr />
@@ -52,7 +53,7 @@ export const projects =
         <a href="http://arimosjs.herokuapp.com">
 
           <img className="projectPhoto arimos" src={arimos} alt="Pixel Dungeon" />
-          Play Arimos
+          <h3>Play Arimos</h3>
         </a>
         <div className="projectDescription">
           <h2>Arimos</h2>
