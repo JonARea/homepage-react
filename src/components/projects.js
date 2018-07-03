@@ -9,7 +9,9 @@ export const projects =
     <ul className="list-group project_list">
       <hr />
       <li className="project">
-        <a href="https://github.com/whistling-duck-labs/warbler">
+        <a
+        onClick={() => mixpanel.track('View Warbler Repo')}
+        href="https://github.com/whistling-duck-labs/warbler">
           <img className="projectPhoto warbler" src={warbler} alt="Warbler Desktop Application" />
           <h3>View the source code</h3>
         </a>
@@ -23,7 +25,7 @@ export const projects =
           <p>
             Electron, React, Redux, Node.js, Webpack, Babel, Immutable.js
           </p>
-          <a href="https://www.youtube.com/watch?v=RLWiyAFp2mM">Watch the presentation.
+          <a onClick={() => mixpanel.track('View Warbler Presentation')}href="https://www.youtube.com/watch?v=RLWiyAFp2mM">Watch the presentation.
           </a>
         </div>
       </li>
