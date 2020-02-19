@@ -1,0 +1,8 @@
+.demung {
+  display: flex;
+  flex-direction: column;
+}
+
+#demung-pic {
+  width: 70vw;
+}

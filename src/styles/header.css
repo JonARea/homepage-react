@@ -1,49 +1,25 @@
 .headroom {
   display: flex;
   width: 100vw;
-  background-color: rgba(236, 236, 236, 0.80);
+  background-color: rgba(236, 236, 236, 0.8);
   color: #313137;
   align-items: center;
+  white-space: nowrap;
 }
 
 .headroom-wrapper {
-  border-bottom: 2px groove #1BA;
+  border-bottom: 2px groove #1ba;
   padding: 2vw 2vw;
   min-height: 12vh;
 }
 
 .headroom > h1 {
-  font-family: 'Raleway', sans-serif;
-  justify-self: flex-start;
-  flex: 1 1;
+  font-family: "Raleway", sans-serif;
+  width: 120px;
   margin: 0 2vw;
 }
 
-.email-link {
-  font-family: 'Raleway', sans-serif;
-  font-variant: normal;
-  margin: 0 1vw;
-}
-
-.nav-icon {
-    display: inline-block;
-    height: 30px;
-    border-radius: 2px;
-}
-
-#gmail {
-  height: 38px;
-}
-
-#gong {
-  height: 30px;
-}
-
-.nav-link {
-  flex: 0 1;
-  margin: 0 .75vw;
-}
-
-.home-window {
-  background: '../images/motif-batik-Sidomukti-solo.jpg';
+.router-links {
+  white-space: nowrap;
+  min-width: 230px;
 }

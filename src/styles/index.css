@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Raleway');
+@import url("https://fonts.googleapis.com/css?family=Lato|Raleway");
 * {
   box-sizing: border-box;
 }
@@ -6,11 +6,15 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   background-color: #f8f8ff;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-weight: 500;
 }
 
@@ -28,8 +32,4 @@ a:hover {
 
 .top-row {
   display: flex;
-}
-
-.footer {
-  text-align: center;
 }
