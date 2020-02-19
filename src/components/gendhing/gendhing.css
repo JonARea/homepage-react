@@ -1,0 +1,17 @@
+#notation {
+  display: flex;
+  animation: note-scroll linear 32s infinite paused;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  width: calc(32 * 80px);
+}
+
+@keyframes note-scroll {
+  to {
+    margin-left: calc(-32 * 80px);
+  }
+}
+
+.note {
+  width: 80px;
+}
