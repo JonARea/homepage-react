@@ -1,9 +1,0 @@
-.weather .local-weather .fetchWeather {
-  height: 100%;
-  width: 100%;
-  color: black;
-}
-
-.weather > button {
-  width: 200px;
-}
